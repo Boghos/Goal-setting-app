@@ -67,13 +67,7 @@ export const loginUser = asynchandler(async (req, res) => {
 // @access public
 // get user data
 export const getMe = asynchandler(async (req, res) => {
-  const { _id, name, email } = await User.findById(req.user.id);
-
-  res.status(200).json({
-    id: _id,
-    name,
-    email,
-  });
+  res.status(200).json(req.user);
 });
 
 // Generate JWT
